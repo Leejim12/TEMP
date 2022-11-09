@@ -120,11 +120,11 @@ public class HeapSortPP {
 		do {
 			System.out.println("Max Tree. Select: 1 insert, 2 display, 3 delete, >=5 exit");
 			Scanner sc = new Scanner(System.in);
-			int select1 = sc.nextInt();
-			switch (select1) {
+			select = sc.nextInt();
+			switch (select) {
 			case 1:
 				System.out.println("input value: ");
-				select1 = sc.nextInt();
+				select = sc.nextInt();
 				A.Insert(data);
 				A.display();
 				break;
@@ -133,7 +133,7 @@ public class HeapSortPP {
 				break;
 			case 3:
 
-				deletedEle = A.n;
+				deletedEle = A.heap[A.MaxSize];
 				A.DeleteMax(ele);
 				if (deletedEle != null) {
 					System.out.println("deleted element: " + deletedEle + "->key");// + endl
@@ -146,7 +146,7 @@ public class HeapSortPP {
 				break;
 
 			}
-		} while (select < 5);
+		} while (select > 5);
 
 //	return 0;
 	}
