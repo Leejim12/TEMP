@@ -1,34 +1,56 @@
 package Submit;
 
-
 public class HeapSort {
+	// 구현해야 할 메소드 : 1. Insert, 2. DeleteMax 3. MaxHeap
+	// 주의 : Heap의 [0]은 사용하지 않음.
+	static int[] heap = new int[21];
+	static int HeapSize;
 	
-	static void swap(int[] a,int idx1,int idx2) {
-		int t = a[idx1]; a[idx1]=a[idx2];a[idx2]=t;
-	}
-	
-	static void makeHeap(int[] a, int left, int right) {
-		int temp = a[left];int child;int parent;
+	// 1. Insert 
+	static void Insert(int n) {
+		int i = ++HeapSize;
 		
-		for (parent = left; parent<(right+1)/2;parent = child) {
-			int cl = parent * 2 + 1; int cr = cl + 1;
-			child = (cr<=right && a[cr]>a[cl])?cr:cl;
-			if (temp >= a[child]) break;
-			a[parent] = a[child];
+		while(i!=1&& heap[i/2]<n) {
+			heap[i]=heap[i/2];i=i/2;
 		}
-		a[parent] = temp;
+		heap[i]=n;
 	}
 	
-	static void HeapSort(int[] a,int n) {
-		for(int i = (n-1)/2;i>=0;i--) makeHeap(a,i,n-1);
-		
-		for(int i = n-1;i>0;i--) {
-			swap(a,0,i);makeHeap(a,0,i-1);
-		}
-	}
+	// 2. Delete
+//    static int delete() {
+//        int result = heap[1];
+//        int n = heap[size--];
+//        
+//        int parent = 1;
+//        int child = 2;
+//        
+//        while(child <=size) {
+//            //자식중에 더큰값을 고른다.
+//            if(child<size && heap[child] <heap[child+1]) {
+//                child++;
+//            }
+//            //자식과 부모를 비교해서 부모가 더크다면 while 빠져나온다
+//            if(item >= heap[child]) {
+//                break;
+//            }
+//            
+//            //그게아니라면 갱신한다
+//            //parent의 위치에 child를 올린다.
+//            
+//            heap[parent] = heap[child];
+//            parent = child;
+//            child = child*2;
+//        }
+//        
+//        
+//        heap[parent] = item;
+//        
+//        return result;
+//        
+//    }	
 	
 	
-	
+
 	public static void main(String[] args) {
 		int nx = 20;
 		int[] x = new int[20];
@@ -42,7 +64,7 @@ public class HeapSort {
 			System.out.print(" " + x[i]);
 		System.out.println();
 		System.out.println();
-		HeapSort(x,nx); // 배열 x를 MergeSort
+//		HeapSort(x,nx); // 배열 x를 MergeSort
 
 		System.out.println("[ Heap Sort 실행.] * Sorted by ASC");
 		System.out.println();
@@ -50,4 +72,5 @@ public class HeapSort {
 		for (int i = 0; i < nx; i++)
 			System.out.print(" " + x[i]);
 	}
+
 }
