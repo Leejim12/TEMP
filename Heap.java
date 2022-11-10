@@ -62,7 +62,7 @@ class MaxHeap implements MaxPQ {
 	@Override
 	public int DeleteMax() {
 		int rt = 0;
-		if (n <= 2) { // Heap에 하나도 안들어갔을때의 n을 1로 잡았습니다.
+		if (n <= 2) { // Heap에 하나도 안들어갔을때의 n -> 1.
 			n--;
 			return heap[1];
 		}
@@ -112,7 +112,7 @@ public class Heap {
 			case 3:
 				int k = heap.DeleteMax();
 
-					System.out.println("deleted element: " + k);// + endl
+					System.out.println("deleted element: " + k);
 				heap.display();
 				break;
 			case 5:
