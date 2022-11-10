@@ -26,7 +26,7 @@ public class HeapSort {
 		
 		for (int ix = 0; ix < 20; ix++) {
 			double d = Math.random();
-			x[ix] = (int) (d * 50);
+			x[ix] = (int) (d * 50 + 1);
 		}
 		for (int i = 0; i < nx; i++)
 			System.out.print(" " + x[i]);
