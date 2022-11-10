@@ -111,10 +111,6 @@ class MaxHeap implements MaxPQ {
 //			if(heap[(n-3)/2]<heap[n-3]) {
 //				swap(heap,(n-3)/2,n-3);
 //			}
-		
-
-
-
 		n--;
 		}
 		return rt;
