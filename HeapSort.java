@@ -10,6 +10,7 @@ public class HeapSort {
 	static void HeapSort(int[] a) {
 
 		MaxHeap HP = new MaxHeap(a.length+2);
+		HP.Insert(0);HP.Insert(0);HP.DeleteMax();HP.DeleteMax();
 		for(int i=0;i<a.length;i++) {
 		HP.Insert(a[i]);
 		}
@@ -26,7 +27,7 @@ public class HeapSort {
 		
 		for (int ix = 0; ix < 20; ix++) {
 			double d = Math.random();
-			x[ix] = (int) (d * 50 + 1);
+			x[ix] = (int) (d * 50);
 		}
 		for (int i = 0; i < nx; i++)
 			System.out.print(" " + x[i]);

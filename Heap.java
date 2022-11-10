@@ -10,7 +10,7 @@ interface MaxPQ {
 
 class MaxHeap implements MaxPQ {
 	public int[] heap;
-	public int n; // current size of HeapSortPP
+	public int n = 1; // 초기 n 1로 잡음.
 	public int MaxSize; // Maximum allowable size of HeapSortPP
 
 	public MaxHeap(int sz)// = HeapSize
@@ -43,14 +43,14 @@ class MaxHeap implements MaxPQ {
 
 	@Override
 	public int Insert(int x) {
-//		int rt;
+
 		if (n == MaxSize) {
 			HeapFull();
 			return x;
 		}
 		heap[n] = x;
 		
-		for (int i = n; i>= 1; i = i / 2) {			
+		for (int i = n; i>= 2; i = i / 2) {			
 			if (heap[i] > (heap[i/2])) {
 				swap(heap, i, i / 2);
 			}
@@ -72,9 +72,9 @@ class MaxHeap implements MaxPQ {
 		heap[1] = heap[n-1];heap[n-1] = -1; // n-1 : 현재 최대 위치. 이걸 1에다가 넣음. n-2 : delete시 최대 인덱스 (n-1은 지워짐 : -1)
 		if(n>=3) {
 
-			for(int i = 1,j=2;j<=n;) {
-				if(j<n && heap[j]<heap[j+1])j++;
-				if(j<=n&&heap[i]<heap[j]) {
+			for(int i = 1,j=2;j<=n-1;) {
+				if(j<n-1 && heap[j]<heap[j+1])j++;
+				if(j<=n-1&&heap[i]<heap[j]) {
 					swap(heap,i,j);
 				}
 				i=j;j=j*2;
